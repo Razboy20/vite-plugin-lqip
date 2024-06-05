@@ -37,6 +37,7 @@ export default function vitePluginLqip(options?: LQIPPluginOptions): Plugin {
 			const img = sharp(base);
 			const metadata = await img.metadata();
 			const output = await img
+				.rotate()
 				.toFormat('webp', {
 					smartSubsample: true,
 					...options?.sharp?.webp,
